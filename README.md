@@ -88,6 +88,68 @@ Ahora es donde se llamará a ```ffmpeg``` para que:
 1. Cambie a escala de grises la imagen.
 2. Comprima la imagen con el ratio de compresión pedido al usuario.
 ```
-Y finalmente, moverá la/s imágen/es creada/s a la carpeta ```images/``` de nuevo.
+Y finalmente, moverá la/s imagen/es creada/s a la carpeta ```images/``` de nuevo.
+
+Resultado de la ejecución de este script:
+![img_4.png](img_4.png)
+![](images/Lenna.jpeg) ![](images/Lenna_0.75compress.jpeg)
 
 ### EJERCICIO 5: Implementación de la codificación Run-Length.
+En este script llamado ```Ex5_Run_Length.py```, se le pide al usuario una cadena de carácteres (en mauyúscula), para poder extraer la cadena codificada a partir del algoritmo ```run_length```.
+En el script se declara una función que calcula la codificación de la secuencia de entrada:
+```ruby
+def run_length_encoding(seq):
+    compressed = []
+    count = 1
+    char = seq[0]
+    for i in range(1 ,len(seq)):
+        if seq[i] == char:
+            count = count + 1
+        else :
+            compressed.append([char ,count])
+            char = seq[i]
+            count = 1
+    compressed.append([char ,count])
+    return compressed
+```
+Y posteriormente se printa por pantalla concatenando el carácter y el número de veces que aparece de manera consecutiva, en forma de string.
+
+Resultado de una ejecución de este script:
+![img_3.png](img_3.png)
+
+### EJERCICIO 6: Aplicación de la DCT e IDCT
+En el ejercicio 6, hemos creado un script llamado ```Ex6_DCT_Coding.py```, que nos ayuda a implementar la ```Discrete Cosine Transfrm (DCT)```
+y su inversa ```Inverse Discrete Cousine Transform (IDCT)```.
+
+Para ello, hemos guardado una imagen en escala de grises (```Lenna.jpeg```) en una variable mediante la libreria ```skimage.color -> rgb2gray```
+Una vez en escala de grises, ya hemos podido aplicar las transformadas correspondientes.
+
+En este ejercicio se le pide al usuario mediante un menú recursivo, que desea hacer:
+
+![img.png](img.png)
+
+Y el script va calculando, mediante estas dos funciones, lo que el usuario introduzca en el menú:
+
+```ruby
+# Calculamos DCT de una imagen(2D).
+def dct2(a):
+    return dct(dct(a.T, norm='ortho').T, norm='ortho')
+
+# Calculamos la IDCT de una imagen(2D)
+def idct2(a):
+    return idct(idct(a.T, norm='ortho').T, norm='ortho')
+```
+
+Este seria el resultado de la implementación de la DCT, por ejemplo:
+![img_2.png](img_2.png)
+
+### MENÚ PRINCIPAL
+Aún no ser obligatorio en este Lab, hemos decidido implementar un menú interactivo para que la experiencia sea mas dinámica y se pueda observar el comportamiento de todos los scrips sin tener que ejecutarlos uno por uno.
+El diseño del menú es el siguiente:
+
+![img_1.png](img_1.png)
+
+Según la opción a escoger, se ejecutarán unos scripts u otros.
+Es importante remarcar, que tanto el menú como todos los scripts tienen "puerta de escape", es decir, se puede salir de la ejecución del programa en cualquier momento.
+
+
