@@ -24,17 +24,20 @@ print("Por favor, introduce un valor(entre 0 y 255) para el canal R:")
 ```
 El bloque de código anterior, ejemplifica la solicitud de dato al usuario y la correspondiente comprobación de rango.
 Podemos destacar también la fórmula utilizada para pasar de espacio de color [RGB] al espacio de color [YUV]:
-<img src="https://latex.codecogs.com/gif.latex?Y=0.299*R + 0.587*G + 0.114*B\" />
-<img src="https://latex.codecogs.com/gif.latex?U=0.493*(B-Y)\" />
-<img src="https://latex.codecogs.com/gif.latex?V=0.877*(R-Y)\" />
+```
+Y = 0.299*R + 0.587*G + 0.114*B
+U = 0.493*(B-Y)
+V = 0.877*(R-Y)
+```
 
 ### EJERCICIO 2: Convertir 3 valores [Y,U,V] en 3 valores [R,G,B]
 En este ejercicio no hay nada mas que añadir. Realizamos lo mismo que en el script anterior pero en un nuevo script llamado ```Ex2_YUV_to_RGB.py```.
 Las fórmulas necesarias para estos cálculos son:
-
-<img src="https://latex.codecogs.com/gif.latex?R=Y + 1.402*(V-128)\" />
-<img src="https://latex.codecogs.com/gif.latex?G=Y - 0.34414*(U-128) - 0.71414*(V-128)\" />
-<img src="https://latex.codecogs.com/gif.latex?B=Y + 1.772*(U-128)\" />
+```
+R = Y + 1.402*(V-128)
+G = Y - 0.34414*(U-128)
+B = Y + 1.772*(U-128)
+```
 
 ## EJERCICIO 3: Redimensionar una imagen.
 En este script llamado ```Ex3_Resize_Image.py```, utilizaremos como imagen modelo ```images/2pac.jpeg```.
