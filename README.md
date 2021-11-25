@@ -22,7 +22,7 @@ print("Por favor, introduce un valor(entre 0 y 255) para el canal R:")
         print(f"El valor de R introducido no es correcto. Por favor, vuelva a introducir un valor(entre 0 y 255) para el canal R:")
         r = input()
 ```
-El bloque de código anterior, ejemplifica la solicitud de dato al usuario y la correspondiente comprobación de rango.
+El bloque de código anterior, muestra la solicitud de dato al usuario y la correspondiente comprobación de rango.
 Podemos destacar también la fórmula utilizada para pasar de espacio de color [RGB] al espacio de color [YUV]:
 ```
 Y = 0.299*R + 0.587*G + 0.114*B
@@ -31,6 +31,7 @@ V = 0.877*(R-Y)
 ```
 
 Este seria el resultado de una instancia de este script:
+
 ![Captura de pantalla-outputEx1](https://user-images.githubusercontent.com/91899380/143328368-76c1c432-b633-4444-bdd9-a7f073f7da67.png)
 
 ### EJERCICIO 2: Convertir 3 valores [Y,U,V] en 3 valores [R,G,B]
@@ -43,6 +44,7 @@ B = Y + 1.772*(U-128)
 ```
 
 Resultado de una instancia de este script:
+
 ![Captura de pantalla-outputEx2](https://user-images.githubusercontent.com/91899380/143328482-236d7275-f6b7-4c94-b045-d3f4445a58fb.png)
 
 Podemos observar como todas las variables que entren por el usuario, estan sometidas a un control de rangos y coherencia con el script :nerd_face:
@@ -71,7 +73,7 @@ Output del script:
 Ahora si que vamos a comprimir una imagen para que ocupe  menos espacio.
 En este script llamado ```Ex4_Compression_BW.py```, se le pide al usuario un nivel de compresión al que será sometido la imagen ```Lenna.jpeg``` mediante ```ffmpeg```.
 Este script tiene unas comprobaciones y unas tareas previas que le facilitan el trabajo a ```ffmpeg``` ya que es vulnerable a cambios de directorios.
-Por eso el siguiente bloque de código copia las imágenes necesarias de la carpeta ```images/``` y las copia en el directorio ```src/```, que es desde donde se ejecuta ```ffmpeg````:
+Por eso el siguiente bloque de código copia las imágenes necesarias de la carpeta ```images/``` y las copia en el directorio ```src/```, que es desde donde se ejecuta ```ffmpeg```:
 ```ruby
 pathCarpeta = ("/Users/edwjunior/Documents/UNIVERSIDAD/4o CURSO/1r TRIMESTRE/SISTEMES DE CODIFICACIÓ D'ÀUDIO I VIDEO/LABS/pythonProject/images")
 pathCarpeta2 = ("/Users/edwjunior/Documents/UNIVERSIDAD/4o CURSO/1r TRIMESTRE/SISTEMES DE CODIFICACIÓ D'ÀUDIO I VIDEO/LABS/pythonProject/src")
@@ -102,7 +104,13 @@ Ahora es donde se llamará a ```ffmpeg``` para que:
 1. Cambie a escala de grises la imagen.
 2. Comprima la imagen con el ratio de compresión pedido al usuario.
 ```
-Y finalmente, moverá la/s imagen/es creada/s a la carpeta ```images/``` de nuevo.
+```ruby
+os.system("ffmpeg -i Lenna.jpeg -vf hue=s=0 Lenna_bw.jpeg")
+...
+os.system("ffmpeg -i Lenna_bw.jpeg -compression_level "+str(c_level)+" Lenna_"+str(float(c_level)/100)+"compress.jpeg")
+```
+Donde ```c_level``` es la variable que almacena el ratio de compresión introducido por el usuario.
+Finalmente, moverá la/s imagen/es creada/s a la carpeta ```images/``` de nuevo.
 
 Resultado de la ejecución de este script:
 
