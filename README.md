@@ -30,6 +30,9 @@ U = 0.493*(B-Y)
 V = 0.877*(R-Y)
 ```
 
+Este seria el resultado de una instancia de este script:
+![Captura de pantalla-outputEx1](https://user-images.githubusercontent.com/91899380/143328368-76c1c432-b633-4444-bdd9-a7f073f7da67.png)
+
 ### EJERCICIO 2: Convertir 3 valores [Y,U,V] en 3 valores [R,G,B]
 En este ejercicio no hay nada mas que añadir. Realizamos lo mismo que en el script anterior pero en un nuevo script llamado ```Ex2_YUV_to_RGB.py```.
 Las fórmulas necesarias para estos cálculos son:
@@ -38,6 +41,11 @@ R = Y + 1.402*(V-128)
 G = Y - 0.34414*(U-128)
 B = Y + 1.772*(U-128)
 ```
+
+Resultado de una instancia de este script:
+![Captura de pantalla-outputEx2](https://user-images.githubusercontent.com/91899380/143328482-236d7275-f6b7-4c94-b045-d3f4445a58fb.png)
+
+Podemos observar como todas las variables que entren por el usuario, estan sometidas a un control de rangos y coherencia con el script :nerd_face:
 
 ## EJERCICIO 3: Redimensionar una imagen.
 En este script llamado ```Ex3_Resize_Image.py```, utilizaremos como imagen modelo ```images/2pac.jpeg```.
@@ -52,6 +60,12 @@ os.system("ffmpeg -i 2pac.jpeg -vf scale=320:240 2pac_resized.png")
 2pac_resized.png: Output de la operación en el mismo directorio que la imagen de entrada.
 ```
 Tenemos que destacar que la imagen pesa mas (aunque las diensiones sean mas pequeñas) debido a que se ha exportado a un formato sin compresión ```.png```.
+
+Output del script:
+
+![Captura de pantalla-outputEx3](https://user-images.githubusercontent.com/91899380/143329116-8ceba4cd-1d21-435b-bd84-a136fb6e34bc.png)
+![2pac](https://user-images.githubusercontent.com/91899380/143329260-784870bd-248a-43c0-a2a2-55e6d836441d.jpeg)
+![2pac_resized](https://user-images.githubusercontent.com/91899380/143329240-c9c0c471-81e3-463e-94b4-a56cd5399196.png)
 
 ### EJERCICIO 4: Comprimir una imagen (por defecto Lenna.jpeg)
 Ahora si que vamos a comprimir una imagen para que ocupe  menos espacio.
@@ -91,8 +105,12 @@ Ahora es donde se llamará a ```ffmpeg``` para que:
 Y finalmente, moverá la/s imagen/es creada/s a la carpeta ```images/``` de nuevo.
 
 Resultado de la ejecución de este script:
-![img_4.png](img_4.png)
-![](images/Lenna.jpeg) ![](images/Lenna_0.75compress.jpeg)
+
+![Captura de pantalla-Ex4](https://user-images.githubusercontent.com/91899380/143327791-36b335db-4a61-47f2-bbc9-6c2775760734.png)
+
+![Lenna_0 75compress](https://user-images.githubusercontent.com/91899380/143327814-78fa237d-daa7-4158-a709-142ff9aff6de.jpeg) 
+![Lenna](https://user-images.githubusercontent.com/91899380/143327815-e72a7772-0d69-4730-b9da-c29279dd2654.jpeg)
+
 
 ### EJERCICIO 5: Implementación de la codificación Run-Length.
 En este script llamado ```Ex5_Run_Length.py```, se le pide al usuario una cadena de carácteres (en mauyúscula), para poder extraer la cadena codificada a partir del algoritmo ```run_length```.
@@ -115,7 +133,9 @@ def run_length_encoding(seq):
 Y posteriormente se printa por pantalla concatenando el carácter y el número de veces que aparece de manera consecutiva, en forma de string.
 
 Resultado de una ejecución de este script:
-![img_3.png](img_3.png)
+
+![Captura de pantalla-Ex5](https://user-images.githubusercontent.com/91899380/143328081-247af913-100c-464a-a171-6ff2789db754.png)
+
 
 ### EJERCICIO 6: Aplicación de la DCT e IDCT
 En el ejercicio 6, hemos creado un script llamado ```Ex6_DCT_Coding.py```, que nos ayuda a implementar la ```Discrete Cosine Transfrm (DCT)```
@@ -126,7 +146,7 @@ Una vez en escala de grises, ya hemos podido aplicar las transformadas correspon
 
 En este ejercicio se le pide al usuario mediante un menú recursivo, que desea hacer:
 
-![img.png](img.png)
+![Captura de pantalla - Ex6](https://user-images.githubusercontent.com/91899380/143328141-fb74a097-7dad-4d08-a43a-fa64e6fdbba1.png)
 
 Y el script va calculando, mediante estas dos funciones, lo que el usuario introduzca en el menú:
 
@@ -141,13 +161,14 @@ def idct2(a):
 ```
 
 Este seria el resultado de la implementación de la DCT, por ejemplo:
-![img_2.png](img_2.png)
+
+![Captura de pantalla-Ex6_2](https://user-images.githubusercontent.com/91899380/143328188-af9d6613-0370-457b-88c6-d1b7c0141bcf.png)
 
 ### MENÚ PRINCIPAL
-Aún no ser obligatorio en este Lab, hemos decidido implementar un menú interactivo para que la experiencia sea mas dinámica y se pueda observar el comportamiento de todos los scrips sin tener que ejecutarlos uno por uno.
+Aún no ser obligatorio en este Lab, hemos decidido implementar un menú interactivo para que la experiencia sea mas dinámica y se pueda observar el comportamiento de todos los scripts sin tener que ejecutarlos uno por uno.
 El diseño del menú es el siguiente:
 
-![img_1.png](img_1.png)
+![Captura de pantalla- MainMenu](https://user-images.githubusercontent.com/91899380/143328247-e2718a45-01b2-475b-a47d-af5142d55b34.png)
 
 Según la opción a escoger, se ejecutarán unos scripts u otros.
 Es importante remarcar, que tanto el menú como todos los scripts tienen "puerta de escape", es decir, se puede salir de la ejecución del programa en cualquier momento.
