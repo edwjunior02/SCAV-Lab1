@@ -1,4 +1,3 @@
-
 import time
 
 def run_length_encoding(seq):
@@ -16,6 +15,7 @@ def run_length_encoding(seq):
     return compressed
 
 def main():
+
     print(f"Bienvenid@ al Ejercicio 4 del Lab 1 de Sistemas de Codificación de Audio y Video \U0001F47E."
           f"\nAhora procederemos a comprimir una secuencia de caracteres, en otra codificada:")
     print(f"Por favor, introduce una secuencia de letras en mayúscula:")

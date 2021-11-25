@@ -2,7 +2,6 @@ import os.path
 import time
 import shutil
 def main():
-
     # Nuestra línea de comando de FFMPEG solo lee imágenes que esten en el mismo directorio que el script en el que se lanze la petición.
     #Para ello, haremos una copia de images/2pac_jpeg y la pasaremos al directorio src/.
     pathCarpeta = ("/Users/edwjunior/Documents/UNIVERSIDAD/4o CURSO/1r TRIMESTRE/SISTEMES DE CODIFICACIÓ D'ÀUDIO I VIDEO/LABS/pythonProject/images")
